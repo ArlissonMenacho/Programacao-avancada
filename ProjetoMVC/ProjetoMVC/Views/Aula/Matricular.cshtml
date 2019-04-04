@@ -1,0 +1,17 @@
+﻿@model ProjetoMVC.Models.Matricular
+
+
+@{
+    ViewData["Title"] = "Matricular";
+}
+<h2>Matricular</h2>
+<form method="post">
+    <label>Nome: </label>
+    <input type="text" name="Nome" value="Escreva Seu nome!" />
+    <label>Matricula: </label>
+    <input type="text" name="Cpf" value="Escreva Sua matricula!" />
+    <label>Idade: </label>
+    <input type="number" name="Idade" />
+
+    <input type="submit" value="Enviar">
+</form>

@@ -1,0 +1,56 @@
+﻿@model IEnumerable<ProjetoMVC.Models.Livro>
+
+@{
+    ViewData["Title"] = "Listagem";
+}
+
+
+
+<h2>Lista de Livros</h2>
+<div>
+    <input type="text" name="campo1" placeholder="Informe o Titulo" />
+    <input type="submit" name="botao1" value="Buscar" />
+</div><br />
+
+<a href="/Livro/Novo" class="btn btn-default">Novo Livro</a> 
+    <table class="table table-hover table-striped">
+        <tr>
+            <th>
+                Titulo
+            </th>
+            <th>
+                Editora
+            </th>
+            <th>
+                Autor
+            </th>
+            <th>
+                Data de Publicação
+            </th>
+            <th></th>
+        </tr>
+       
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Titulo
+                </td>
+                <td>
+                    @item.Autor
+                </td>
+                <td>
+                    @item.Editora
+                </td>
+                <td>
+                    @item.DtPulicacao
+                </td>               
+                <td>
+                    <a href="/livro/editar/@item.Id" class="btn btn-default"><i class="glyphicon glyphicon-edit"></i></a>
+                    <a href="/livro/Excluir/@item.Id" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
+                </td>
+            </tr>
+        }
+
+    </table>
+
