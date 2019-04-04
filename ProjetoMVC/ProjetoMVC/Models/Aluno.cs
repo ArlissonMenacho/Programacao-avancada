@@ -4,10 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.Web;
+using ProjetoMVC.Repositorio;
 
 namespace ProjetoMVC.Models
 {
-    public class Aluno
+    public class Aluno : Pessoa
     {
         private string cidade, numero, orgaoExpedidor, rg, rua, sexo, uf;
         private DateTime dataNascimento;
@@ -40,6 +41,35 @@ namespace ProjetoMVC.Models
         [Display(Name = "Data de Nascimento:")]
         [Required(ErrorMessage = "Este campo é obrigatório")]
         public DateTime DataNascimento { get => dataNascimento; set => dataNascimento = value; }
+
+        public Aluno BuscarAlunoPorID(int id)
+        {
+            return Banco.Alunos.First(x => x.Id == id);
+        }
+
+        public void Delete(Aluno id)
+        {
+            return;
+        }
+
+        public Aluno Update(Aluno emprestimo)
+        {
+            return new Aluno();
+        }
+
+        public void Inserir()
+        {
+            if (this.Id == 0)
+            {
+                Random r = new Random();
+                this.Id = r.Next(1, 9999);
+                Banco.Alunos.Add(this);
+            }
+        }
+        public IList<Aluno> BuscarTodos()
+        {
+            return Banco.Alunos;
+        }
 
     }
 }

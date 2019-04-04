@@ -28,5 +28,6 @@ namespace ProjetoMVC.Models
         {
             get; set;
         }
+        public int Id { get => id; set => id = value; }
     }
 }

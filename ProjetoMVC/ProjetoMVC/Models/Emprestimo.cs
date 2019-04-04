@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using ProjetoMVC.Repositorio;
 
 namespace ProjetoMVC.Models
 {
@@ -32,6 +33,34 @@ namespace ProjetoMVC.Models
         public IList<ItensEmprestimo> ObjItensEmprestimo
         {
             get; set;
+        }
+        public Emprestimo BuscarEmprestimoPorID(int id)
+        {
+            return Banco.Emprestimos.First(x => x.id == id);
+        }
+
+        public void Delete(Emprestimo id)
+        {
+            return;
+        }
+
+        public Emprestimo Update(Emprestimo emprestimo)
+        {
+            return new Emprestimo();
+        }
+
+        public void Inserir()
+        {
+            if (this.Id == 0)
+            {
+                Random r = new Random();
+                this.id = r.Next(1, 9999);
+                Banco.Emprestimos.Add(this);
+            }
+        }
+        public IList<Emprestimo> BuscarTodos()
+        {
+            return Banco.Emprestimos;
         }
     }
 }

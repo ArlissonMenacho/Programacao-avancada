@@ -1,0 +1,70 @@
+﻿@model IEnumerable<ProjetoMVC.Models.Funcionario>
+@{
+    ViewData["Title"] = "Listagem Funcionario";
+}
+
+<h2>ListagemFuncionario</h2>
+div>
+<input type="text" name="campo1" placeholder="Informe o Funcionario" />
+<input type="submit" name="botao1" value="Buscar" />
+</div><br />
+
+<a href="/Funcionario/Novo" class="btn btn-default">Novo Funcionario</a>
+<table class="table table-hover table-striped">
+    <tr>
+        <th>
+            Nome
+        </th>
+        <th>
+            CPF
+        </th>
+        <th>
+            Cargo
+        </th>
+        <th>
+            Matricula
+        </th>
+        <th>
+           Pis
+        </th>
+        <th>
+            Data de Admissão
+        </th>
+        <th>
+            Salário 
+        </th>        
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.Nome
+            </td>
+            <td>
+                @item.Cpf
+            </td>
+            <td>
+                @item.Cargo
+            </td>
+            <td>
+                @item.Matricula
+            </td>
+            <td>
+                @item.Pis
+            </td>
+            <td>
+                @item.DataAdmissao
+            </td>
+            <td>
+                @item.Salario
+            </td>            
+            <td>
+                <a href="/livro/editar/@item.Id" class="btn btn-default"><i class="glyphicon glyphicon-edit"></i></a>
+                <a href="/livro/Excluir/@item.Id" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
+            </td>
+        </tr>
+    }
+
+</table>

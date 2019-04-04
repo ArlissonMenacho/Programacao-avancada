@@ -1,0 +1,43 @@
+﻿@model IEnumerable<ProjetoMVC.Models.Emprestimo>
+
+@{
+    ViewData["Title"] = "ListagemEmprestimo";
+}
+
+<h2>Listagem de Emprestimo</h2>
+
+<div>
+    <input type="text" name="campo1" placeholder="Informe o emprestimo" />
+    <input type="submit" name="botao1" value="Buscar" />
+</div><br />
+
+<a href="/Emprestimo/Novo" class="btn btn-default">Novo Emprestimo</a>
+<table class="table table-hover table-striped">
+    <tr>
+        <th>
+            Data Emprestimo
+        </th>        
+        <th>
+            Valor Total
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.DtEmprestimo
+            </td>
+            <td>
+                @item.ValorTotal
+            </td>            
+            <td>
+                <a href="/livro/editar/@item.Id" class="btn btn-default"><i class="glyphicon glyphicon-edit"></i></a>
+                <a href="/livro/Excluir/@item.Id" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
+            </td>
+        </tr>
+    }
+
+</table>
+
